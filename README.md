@@ -6,6 +6,6 @@ This is my assessment test to follow Fullstack Javascript Intern at AIA made wit
 
 [Netlify] :
 
-[Backend-URL] : "https://flickrserver.herokuapp.com" 
+[Backend-URL] : "https://flickrserver.herokuapp.com"
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import useStyles from "./styles"; 
+import useStyles from "./styles";
 
 // Import @material-ui/core
 import { Grid } from "@material-ui/core";
