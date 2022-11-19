@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
   },
 
   typo: {
-    fontWeight: 700,
+    fontWeight: "600 !important",
     fontSize: 27,
     justifyContent: "center",
     alignItems: "center",

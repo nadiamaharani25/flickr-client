@@ -26,7 +26,7 @@ const Photos = () => {
   // useState
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [query, setQuery] = useState("");
+  const [searchItem, setSearchItem] = useState("");
   const [page, setPage] = useState(1);
   const itemPerPage = 3;
 
@@ -46,6 +46,7 @@ const Photos = () => {
       .then((response) => {
         const allPhotos = response.data.items;
         setPhotos(allPhotos);
+        console.log(response.data.items, `response items`);
       })
       .catch((error) => {
         console.log(`Error ${error}`);
@@ -61,31 +62,31 @@ const Photos = () => {
     <Typography variant="h1">Loading</Typography>
   ) : (
     <>
-    <Container marginTop="-50px">
+    <Container>
         <TextField
         className={classes.inputType}
         name="search"
         variant="filled"
-        label="Search Keywoard"
+        label="Search Keywords"
         fullWidth
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={(e) => setSearchItem(e.target.value)}
       />
       </Container>
 
       <>
         {DataPagination.currentData()
           .filter((items) => {
-            if (query === "") {
+            if (searchItem === "") {
               return items;
             } else if (
-              items.tags.toLowerCase().includes(query.toLocaleLowerCase())
+              items.title.toLowerCase().includes(searchItem.toLocaleLowerCase())
             ) {
               return items;
             }
           })
-          .map((items) => {
+          .map((items, id) => {
             return (
-              <Grid item xs={12} sm={12} md={6} lg={4} key={items.id}>
+              <Grid item xs={12} sm={12} md={6} lg={4} key={id}>
                 <Card className={classes.card} raised elevation={6}>
                   <CardMedia
                     className={classes.media}
